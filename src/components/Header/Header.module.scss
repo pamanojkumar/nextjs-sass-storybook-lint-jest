@@ -1,0 +1,33 @@
+@import 'config';
+
+.header_wrapper {
+  padding: 20px;
+
+  .h-title {
+    font-size: 28px;
+    color: $highlight;
+    font-family: $header-font;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  &.bg1 {
+    background: #fff;
+  }
+
+  &.bg2 {
+    background: #000;
+  }
+
+  img {
+    width: 200px;
+    height: 200px;
+    // background-image: url('/favicon.ico');
+  }
+}
+
+.newtitle {
+  color: rgb(106, 133, 10);
+}
