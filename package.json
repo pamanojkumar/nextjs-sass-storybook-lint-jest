@@ -5,12 +5,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 5000",
     "jest:watch": "jest --watch",
     "jest:coverage": "jest --coverage",
     "jest": "jest",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -c .storybook -s public",
+    "build-storybook": "build-storybook -c .storybook -s ./public",
     "lint": "npm run lint:js && npm run lint:styles",
     "lint:styles": "stylelint --syntax scss \"src/**/*.scss\"",
     "lint:js": "eslint -c ./eslintrc.json --ignore-path ./.eslintignore ./src ./stories"
@@ -46,6 +46,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.4.2",
     "react-is": "^16.13.1",
+    "resolve-url-loader": "^3.1.1",
     "sass-loader": "^10.0.1",
     "style-loader": "^1.2.1",
     "stylelint": "^13.7.0",

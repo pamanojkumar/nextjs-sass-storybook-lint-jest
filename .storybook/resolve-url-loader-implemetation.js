@@ -1,5 +1,4 @@
 const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   "stories": [
@@ -15,7 +14,6 @@ module.exports = {
     // `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
     // You can change the configuration based on that.
     // 'PRODUCTION' is used when building the static version of storybook.
-   
     config.module.rules.push(
     {
       // test: /\.scss$/,
@@ -26,33 +24,30 @@ module.exports = {
           loader: 'css-loader',
           options: {
             importLoaders: 2,
+            sourceMap: true,
             url:false
           },
         },
+        'resolve-url-loader',
         {
           loader: 'sass-loader',
           options: {
             sassOptions: {
               indentWidth: 2,
               includePaths: [
-                path.resolve(__dirname, '../src/styles'),
-                path.resolve(__dirname, '../public')
+                path.resolve(__dirname, '../src/styles')
               ]
             },
+            sourceMap: true,
           },
-        },        
+        },
+        // { loader: 'postcss-loader', options: { sourceMap: true } }
+        
       ],
       include: path.resolve(__dirname, '../'),
     },
-    {
-      test: /\.(svg|ico|jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|cur|ani|pdf)(\?.*)?$/,
-      loader: 'file-loader',
-      options: {
-        name: '[name].[ext]',
-        esModule: false,
-      }
-    },
     );
+    //console.log('custom config sass includepath', config.module.rules[10].use[3].options.sassOptions);
     // console.log(config.module.rules)
     // Return the altered config
     return config;
